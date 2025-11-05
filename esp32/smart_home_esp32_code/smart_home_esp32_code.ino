@@ -67,7 +67,7 @@ String uidToString(MFRC522::Uid *uid) {
 
 bool checkUIDFromServer(String uid) {
   HTTPClient http;
-  String url = "http://<172.20.10.2>:3000/api/rfid/" + uid;  // ⚠️ Thay bằng IP máy chạy Node.js
+  String url = "http://172.20.10.2:3000/api/rfid/" + uid;  // ⚠️ Thay bằng IP máy chạy Node.js
   http.begin(url);
   int code = http.GET();
   if (code == 200) {
