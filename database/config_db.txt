@@ -1,0 +1,4 @@
+Hướng dẫn MySQL (local):
+1) Mở MySQL Workbench hoặc CLI và chạy file init_db.sql
+2) Sửa backend/.env (copy từ .env.example) cho đúng DB_HOST, DB_USER, DB_PASS
+3) Mặc định có sẵn tài khoản: admin / 1234 (role admin)

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESP32 Smart Home</title>
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      margin: 16px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    }
+
+    button {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    button:disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed;
+    }
+
+
+    .on {
+      background-color: #d7ffd9;
+      color: #157f1f;
+    }
+
+    .off {
+      background-color: #ffd7d7;
+      color: #b00020;
+    }
+
+    .status {
+      font-size: 14px;
+      opacity: .8;
+    }
+
+    .danger {
+      color: #b00020;
+      font-weight: 700;
+    }
+
+    .ok {
+      color: #157f1f;
+      font-weight: 700;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #ccc;
+    }
+
+    .logout {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    #btnLogout {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+  <!-- <script src="dashboard.js"></script> -->
+</head>
+
+<body>
+  <h1>ESP32 Smart Home</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Thiết bị</h3>
+      <div class="row">
+        <button id="btnLight">Đèn</button>
+        <span id="lightState" class="badge">--</span>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <button id="btnFan">Quạt</button>
+        <span id="fanState" class="badge">--</span>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <button id="btnOpenDoor">Mở cửa</button>
+        <button id="btnCloseDoor">Đóng cửa</button>
+        <span id="doorState" class="badge">--</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Cảm biến</h3>
+      <div>MQ2: <b id="mq2Val">--</b></div>
+      <div>Cửa từ: <b id="reedState">--</b></div>
+      <div>Phản xạ: <b id="irState">--</b></div>
+      <div style="margin-top:8px">Cảnh báo: <span id="alarmState" class="status">--</span></div>
+      <div class="row" style="margin-top:8px">
+        <button id="btnResetAlarm">Reset cảnh báo</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Điều khiển bằng giọng nói</h3>
+      <p class="status">Dùng Chrome/Edge. Lệnh ví dụ: "bật đèn", "tắt đèn", "mở cửa", "đóng cửa".</p>
+      <div class="row"><button id="btnVoice">Bắt đầu nghe</button><span id="voiceTxt" class="badge">--</span></div>
+    </div>
+
+    <div class="logout">
+      <button id="btnLogout">Đăng xuất</button>
+    </div>
+  </div>
+
+  <script src="dashboard.js" defer></script>
+
+</body>
+
+</html>

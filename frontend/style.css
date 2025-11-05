@@ -1,0 +1,47 @@
+body {
+    font-family: system-ui, Arial, sans-serif;
+    margin: 24px;
+    background: #f7f7fb
+}
+
+h1,
+h2 {
+    margin: 0 0 12px
+}
+
+.login-box {
+    max-width: 360px;
+    margin: 80px auto;
+    padding: 24px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06)
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px
+}
+
+button {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px
+}
+
+.note {
+    opacity: .75;
+    font-size: 14px
+}

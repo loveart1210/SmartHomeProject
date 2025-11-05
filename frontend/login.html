@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập Smart Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-box">
+    <h2>Đăng nhập hệ thống</h2>
+    <form onsubmit="login(event)">
+      <input id="username" placeholder="Tên đăng nhập" required />
+      <input id="password" type="password" placeholder="Mật khẩu" required />
+      <button>Đăng nhập</button>
+    </form>
+    <p class="note">Dùng tài khoản mặc định: <b>admin / 1234</b></p>
+  </div>
+  <script>
+    async function login(e){
+      e.preventDefault();
+      const res = await fetch("http://localhost:3000/api/auth/login", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({username:username.value, password:password.value})
+      });
+      const data = await res.json();
+      if(data.ok){
+        localStorage.setItem("user", JSON.stringify(data));
+        location.href="dashboard.html";
+      } else alert(data.message || "Đăng nhập thất bại");
+    }
+  </script>
+</body>
+</html>
